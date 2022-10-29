@@ -19,7 +19,27 @@ public class DataController {
     @RequestMapping("/input")
     //@ResponseBody
     public String inputan(HttpServletRequest data, Model barang){
+        ProsesData pd = new ProsesData();
         
+        String namabrg = data.getParameter("namabrg");
+        String jumlahbrg = data.getParameter("jumlahbrg");
+        String hargabrg = data.getParameter("hargabrg");
+        
+        Double harga = pd.hrg(hargabrg);
+        Double jumlah = pd.jml(jumlahbrg);
+        Double jumlahbayar = pd.bayar1(harga, jumlah);
+        String diskonn = pd.diskon(harga);
+        Double jumlahdiskon = pd.jmldiskon(harga, Integer.SIZE);
+        Double totalbayar = pd.totalbyr(jumlahbayar, jumlahdiskon);
+        pd.HasilDiskon(totalbayar, jumlahbayar, jumlahdiskon, Integer.SIZE);
+        
+        barang.addAttribute("namabarang", namabrg);
+        barang.addAttribute("hargabarang", hargabrg);
+        barang.addAttribute("jumlahbarang", jumlahbrg);
+        barang.addAttribute("diskon", diskonn);
+        barang.addAttribute("jumlahdiskon", jumlahdiskon);
+        barang.addAttribute("totalbayar", totalbayar);
+        
+        return "show";
     }
-    
 }
