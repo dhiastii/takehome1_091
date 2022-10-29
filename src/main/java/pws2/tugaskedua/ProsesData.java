@@ -21,5 +21,16 @@ public class ProsesData {
         Double bayar1 = hargabrg * jumlahbrg;
         return bayar1;}
     
+    public String Diskon (Double bayar1){
+        String Diskon = null;
+        if (bayar1 < 10000){
+            Diskon = "0";}
+        else if (bayar1 < 50000){
+            Diskon = "5";}
+        else{
+            Diskon = "10";}
+        return Diskon;
+        }
+    
     
 }
