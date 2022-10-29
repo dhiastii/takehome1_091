@@ -34,6 +34,28 @@ public class ProsesData {
     public Double jmldiskon(Double bayar1, Integer diskon){
         Double jmldiskon = bayar1 * diskon/100;
         return jmldiskon;}
-        
     
+    public Double totalbyr(Double jumlahbyr, Double diskon){
+        Double totalbyr = jumlahbyr - diskon;
+        return totalbyr;}
+    
+     public void HasilDiskon (Double totalbyr, Double jumlahbyr, Double jmldiskon, Integer diskon){
+        
+        if(jumlahbyr < 10000){
+            diskon = 0;
+            totalbyr = jumlahbyr - (jumlahbyr*diskon/100);
+            jmldiskon = jumlahbyr*diskon/100;
+            
+        }else  if(jumlahbyr < 50000){
+            diskon = 5;
+            totalbyr = jumlahbyr - (jumlahbyr*diskon/100);
+            jmldiskon = jumlahbyr*diskon/100;
+        }else{
+            diskon = 10;
+            totalbyr = jumlahbyr - (jumlahbyr*diskon/100);
+            jmldiskon = jumlahbyr*diskon/100;
+        }
+         
+     }
+     
 }
