@@ -31,7 +31,7 @@ public class DataController {
         String diskonn = pd.diskon(bayarawal);
         Double jumlahdiskon = pd.jmldiskon(bayarawal, Integer.parseInt(diskonn));
         Double totalbayar = pd.totalbyr(bayarawal, jumlahdiskon);
-        pd.HasilDiskon(totalbayar, jumlahbayar, jumlahdiskon, Integer.SIZE);
+        pd.HasilDiskon(totalbayar, bayarawal, jumlahdiskon, Integer.SIZE);
         
         barang.addAttribute("namabarang", namabrg);
         barang.addAttribute("hargabarang", hargabrg);
