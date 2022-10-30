@@ -27,10 +27,10 @@ public class DataController {
         
         Double harga = pd.hrg(hargabrg);
         Double jumlah = pd.jml(jumlahbrg);
-        Double jumlahbayar = pd.bayar1(harga, jumlah);
-        String diskonn = pd.diskon(harga);
-        Double jumlahdiskon = pd.jmldiskon(harga, Integer.parseInt(diskonn));
-        Double totalbayar = pd.totalbyr(jumlahbayar, jumlahdiskon);
+        Double bayarawal = pd.bayar1(harga, jumlah);
+        String diskonn = pd.diskon(bayarawal);
+        Double jumlahdiskon = pd.jmldiskon(bayarawal, Integer.parseInt(diskonn));
+        Double totalbayar = pd.totalbyr(bayarawal, jumlahdiskon);
         pd.HasilDiskon(totalbayar, jumlahbayar, jumlahdiskon, Integer.SIZE);
         
         barang.addAttribute("namabarang", namabrg);
